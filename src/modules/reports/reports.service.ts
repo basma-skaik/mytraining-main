@@ -89,7 +89,7 @@ export class ReportsService {
     this.logger.log(`Attempting to remove report with id ${id}`);
     return report.save();
   }
-
+  
   async getDashboardReports(dashboardId: number) {
     const reports = await this.reportRepository.findOne({
       where: { dashboardId },
