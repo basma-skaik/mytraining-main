@@ -7,7 +7,6 @@ import { Dashboard } from '../dashboard/dashboard.model';
 import { Conversation } from '../conversation/conversation.model';
 import { Message } from '../message/message.model';
 import { UserDashboardShared } from '../user.dashboard.shared/user.dashboard.shared.model';
-// import { GroupConversationParticipant } from '../conversation/GroupConversationParticipant.model';
 import { TransactionInterceptorProvider } from 'src/common/interceptors/transaction.interceptor';
 import { DashboardInvitation } from '../dashboard-invitation/dashboard-invitation.model';
 
@@ -35,7 +34,6 @@ export const databaseProvider = [
         UserDashboardShared,
         Conversation,
         Message,
-        // GroupConversationParticipant,
         DashboardInvitation
       ]);
       return sequelize;

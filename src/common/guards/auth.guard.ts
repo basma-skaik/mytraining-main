@@ -41,7 +41,7 @@ export class AuthGuard implements CanActivate {
 
     CheckItemExistance(user, 'user not found!')
 
-    request.user = user.dataValues;
+    request.user = user.get({ plain: true });
 
     const roleGuard = new RolesGuard(this.reflector);
 

@@ -21,12 +21,7 @@ export class ReportsService {
   async create(createReportDto: CreateReportDto, userId: number) {
     const dashboard = await this.dashboardService.findOne(userId);
 
-    if (!dashboard) {
-      throw new HttpException(
-        'Dashboard not found for the specified userId',
-        HttpStatus.NOT_FOUND,
-      );
-    }
+    CheckItemExistance(dashboard, 'Dashboard not found for the specified userId')
 
     const report = await this.reportRepository.create({
       ...createReportDto,

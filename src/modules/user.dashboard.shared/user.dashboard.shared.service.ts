@@ -103,8 +103,7 @@ export class UserDashboardSharedService {
     return userIds;
   }
 
-  //any user can leave the dashboard shared
-  //Q: Can the owner delete hisself from the dashboard?
+  //any user can leave the dashboard shared also the owner and the groupAdmin can remove user
   async removeSharedUser(
     ownerId: number,
     userId: number,

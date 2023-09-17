@@ -17,7 +17,6 @@ import { Dashboard } from '../dashboard/dashboard.model';
   timestamps: true,
   underscored: true,
   paranoid: true,
-  // TODO: please use soft delete //Done
 })
 export class Reports extends Model<Reports> {
   @PrimaryKey

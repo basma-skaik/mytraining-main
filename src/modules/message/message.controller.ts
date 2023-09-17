@@ -67,26 +67,4 @@ export class MessageController {
     return { message: 'Reply sent successfully' };
   }
 
-  // @UseInterceptors(TransactionInterceptor)
-  // @Post(':conversationId')
-  // async sendGroupMessageToConversation(
-  //   // Make an interface => IUserIdentity
-  //   @User() sender,
-  //   @Param('conversationId') conversationId: number,
-  //   @Body() createMessageDto: CreateMessageDto,
-  //   @TransactionParam() transaction: Transaction,
-  // ) {
-  //   const groupMessage =
-  //     await this.messageService.sendGroupMessageToConversation(
-  //       sender.id,
-  //       conversationId,
-  //       createMessageDto,
-  //       transaction,
-  //     );
-
-  //   return {
-  //     message: 'Group message sent successfully',
-  //     groupMessage,
-  //   };
-  // }
 }

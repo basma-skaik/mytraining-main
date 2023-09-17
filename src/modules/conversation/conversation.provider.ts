@@ -1,6 +1,5 @@
 import { REPOSITORIES } from 'src/common/constants';
 import { Conversation } from './conversation.model';
-// import { GroupConversationParticipant } from './GroupConversationParticipant.model';
 
 export const ConversationProvider = [
   {
@@ -9,10 +8,4 @@ export const ConversationProvider = [
       return Conversation;
     },
   },
-  // {
-  //   provide: REPOSITORIES.GROUP_CONVERSATION_PARTICIPANT_REPOSITORY,
-  //   useFactory: () => {
-  //     return GroupConversationParticipant;
-  //   },
-  // },
 ];

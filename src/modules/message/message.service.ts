@@ -4,6 +4,7 @@ import { ConversationService } from '../conversation/conversation.service';
 import { UserDashboardSharedService } from '../user.dashboard.shared/user.dashboard.shared.service';
 import { REPOSITORIES } from 'src/common/constants';
 import { Message } from './message.model';
+import { Transaction } from 'sequelize';
 
 @Injectable()
 export class MessageService {
@@ -19,7 +20,7 @@ export class MessageService {
     createMessageDto: CreateMessageDto,
     conversationId: number,
     senderId: number,
-    transaction: any,
+    transaction: Transaction,
   ) {
     const newMessage = await this.messageRepository.create(
       {
@@ -131,27 +132,6 @@ export class MessageService {
     );
     return { message: 'Reply sent successfully' };
   }
-
-  // async sendGroupMessageToConversation(
-  //   senderId: number,
-  //   conversationId: number,
-  //   createMessageDto: CreateMessageDto,
-  //   transaction: any,
-  // ) {
-  //   const participant = await this.conversationService.getParticipant(
-  //     conversationId,
-  //     senderId,
-  //   );
-  //   const message = await this.createMessage(
-  //     createMessageDto,
-  //     conversationId,
-  //     participant.userId,
-  //     transaction,
-  //   );
-
-  //   return message;
-  // }
-
 
   async removeMessagesForConversation(
     conversationId: number,

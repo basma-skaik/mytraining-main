@@ -63,6 +63,4 @@ export class Conversation extends Model<Conversation> {
   @HasMany(() => Message)
   message: Message[];
 
-  @Column(DataType.BOOLEAN)
-  isGroup: boolean;
 }

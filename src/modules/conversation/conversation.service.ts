@@ -1,8 +1,6 @@
 import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import { Conversation } from './conversation.model';
 import { REPOSITORIES } from 'src/common/constants';
-// import { GroupConversationParticipant } from './GroupConversationParticipant.model';
-import { CheckItemExistance } from 'src/common/utils';
 import { MessageService } from '../message/message.service';
 
 @Injectable()
@@ -75,109 +73,4 @@ export class ConversationService {
     return { message: 'SharedUser Conversations removed successfully' };
   }
 
-  // async createGroupConversation(
-  //   ownerId: number,
-  //   participants: number[],
-  //   transaction: any,
-  // ) {
-  //   // Create the group conversation
-  //   const groupConversation = await this.conversationRepository.create(
-  //     {
-  //       ownerId,
-  //       sharedUserId: ownerId,
-  //       isGroup: true,
-  //     },
-  //     { transaction },
-  //   );
-
-  //   // Prepare an array of participant objects
-  //   const participantObjects = participants.map((participantId) => ({
-  //     conversationId: groupConversation.id,
-  //     userId: participantId,
-  //   }));
-
-  //   // Add participants to the conversation
-  //   // TODO: bulkCreate
-  //   await this.groupConversationParticipantRepository.bulkCreate(
-  //     participantObjects,
-  //     { transaction },
-  //   );
-
-  //   return groupConversation;
-  // }
-
-  // async getParticipant(conversationId: number, senderId: number) {
-  //   const participant =
-  //     await this.groupConversationParticipantRepository.findOne({
-  //       where: {
-  //         conversationId,
-  //         userId: senderId,
-  //       },
-  //     });
-
-  //   CheckItemExistance(
-  //     participant,
-  //     'Sender is not a participant in the group conversation!',
-  //   );
-
-  //   return participant;
-  // }
-
-  // async removeUserGroup(
-  //   conversationId: number,
-  //   userId: number,
-  //   ownerId: number,
-  //   transaction: any,
-  // ) {
-  //   const participant = await this.getParticipant(conversationId, userId);
-  //   CheckItemExistance(participant, 'Participant not found in this group!');
-
-  //   await this.groupConversationParticipantRepository.update(
-  //     {
-  //       deletedAt: new Date(),
-  //       deletedBy: ownerId,
-  //     },
-  //     {
-  //       where: {
-  //         conversationId,
-  //         userId,
-  //       },
-  //       transaction,
-  //     },
-  //   );
-
-  //   const remainingParticipants =
-  //     await this.groupConversationParticipantRepository.count({
-  //       where: {
-  //         conversationId,
-  //       },
-  //       transaction,
-  //     });
-
-  //   if (remainingParticipants === 0) {
-  //     const conversation = await this.conversationRepository.findByPk(
-  //       conversationId,
-  //     );
-
-  //     if (conversation) {
-  //       await Promise.all([
-  //         conversation.update(
-  //           {
-  //             deletedAt: new Date(),
-  //             deletedBy: ownerId,
-  //           },
-  //           { transaction },
-  //         ),
-  //         this.messageService.removeMessagesForConversation(
-  //           conversationId,
-  //           ownerId,
-  //           transaction,
-  //         ),
-  //       ]);
-  //     }
-  //   }
-  //   return {
-  //     message: `User removed from group conversation successfully by ${ownerId}`,
-  //   };
-  // }
 }

@@ -50,7 +50,7 @@ export class DashboardInvitationService {
             status: 'pending',
           },
         });
-
+        
       checkItemDuplicate(
         existingInvitation,
         `An invitation for user with ID ${invitedUserId} already exists!`,
@@ -67,7 +67,7 @@ export class DashboardInvitationService {
       );
     });
 
-    await Promise.all(promises);
+    await Promise.allSettled(promises);
     this.logger.log(`Inviting user to join the dashboard`);
     return { message: 'Invitation sent successfully' };
   }
